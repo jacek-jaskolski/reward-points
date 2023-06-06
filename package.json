@@ -14,7 +14,7 @@
   "scripts": {
     "start": "npm run server & npm run client",
     "client": "react-scripts start",
-    "server": "node .src/server/server",
+    "server": "node ./src/server/server",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
