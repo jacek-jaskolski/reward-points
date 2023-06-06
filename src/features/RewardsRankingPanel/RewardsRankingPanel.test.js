@@ -26,14 +26,12 @@ describe('RewardsRankingPanel', () => {
     })
 
     render(<RewardsRankingPanel />)
-    jest.useFakeTimers('modern')
     await waitFor(
       () => {
-        jest.advanceTimersByTime(1000)
-        expect(document.querySelector('.spinner')).toBeInTheDocument()
+        expect(screen.getByText('Something went wrong')).toBeInTheDocument()
       },
-      { shouldThrow: false, timeout: 5000, shouldClearNativeTimers: true },
-    )
+      { timeout: 2000 },
+    ) // increase timeout to 5 seconds
   })
 
   it('should render rewards ranking on fetch success', async () => {
