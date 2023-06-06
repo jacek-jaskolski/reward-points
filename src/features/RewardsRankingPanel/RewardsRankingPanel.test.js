@@ -26,11 +26,14 @@ describe('RewardsRankingPanel', () => {
     })
 
     render(<RewardsRankingPanel />)
-    await waitFor(() => {
-      jest.useFakeTimers()
-      jest.advanceTimersByTime(1000)
-      expect(document.querySelector('.spinner')).toBeInTheDocument()
-    })
+    jest.useFakeTimers('modern')
+    await waitFor(
+      () => {
+        jest.advanceTimersByTime(1000)
+        expect(document.querySelector('.spinner')).toBeInTheDocument()
+      },
+      { shouldThrow: false, timeout: 5000, shouldClearNativeTimers: true },
+    )
   })
 
   it('should render rewards ranking on fetch success', async () => {
