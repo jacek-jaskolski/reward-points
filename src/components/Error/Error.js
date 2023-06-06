@@ -1,7 +1,7 @@
 import './error.css'
 
 export const Error = ({ title, body }) => (
-  <div className="error">
+  <div className="error" data-testid="error">
     <div className="error-sing">
       <span className="warning-sign-icon"></span>
     </div>

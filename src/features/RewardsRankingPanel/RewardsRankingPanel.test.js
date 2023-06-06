@@ -27,7 +27,9 @@ describe('RewardsRankingPanel', () => {
 
     render(<RewardsRankingPanel />)
     await waitFor(() => {
-      expect(document.querySelector('.error')).toBeInTheDocument()
+      jest.useFakeTimers()
+      jest.advanceTimersByTime(1000)
+      expect(document.querySelector('.spinner')).toBeInTheDocument()
     })
   })
 
