@@ -1,9 +1,8 @@
 import React, { useState, useMemo } from 'react'
 import { sortRecords } from '../utils'
+import { total_column_key } from '../const'
 import { RankingRecord } from './RankingRecord'
 import { SortableCellHeader } from './SortableCellHeader'
-
-const total_column_key = 'total'
 
 export const Ranking = ({ rankingMonths, records }) => {
   const [sortBy, setSortBy] = useState(total_column_key)

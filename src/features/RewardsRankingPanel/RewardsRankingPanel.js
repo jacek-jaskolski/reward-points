@@ -19,8 +19,10 @@ export const RewardsRankingPanel = () => {
         setRewards(fetchedRewards)
         setIsLoading(false)
       } catch (error) {
-        setIsLoading(false)
-        setError(error)
+        setTimeout(() => {
+          setIsLoading(false)
+          setError(error)
+        }, 1000) // to see the spinner
       }
     }
     fetchData()

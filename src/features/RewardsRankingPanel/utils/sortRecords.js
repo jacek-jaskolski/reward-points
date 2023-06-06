@@ -1,3 +1,5 @@
+import { total_column_key } from '../const'
+
 export const sortRecords = (records, sortBy) =>
   records.sort((a, b) => {
     const aPointsForSortBy =
