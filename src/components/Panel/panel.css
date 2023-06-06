@@ -1,0 +1,12 @@
+.panel {
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.panel-header h1 {
+  margin-top: 0;
+}

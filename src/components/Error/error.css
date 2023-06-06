@@ -1,0 +1,30 @@
+.error {
+  margin: 100px;
+  text-align: center;
+}
+
+.error-sing {
+  display: inline-block;
+  padding: 15px 30px 25px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border: 1px solid #c57174;
+  background: #fef3f2;
+  box-shadow: 0 0 2px #c57174;
+}
+
+.warning-sign-icon {
+  position: relative;
+  border-left: 0.7em solid transparent;
+  border-right: 0.7em solid transparent;
+  top: -1em;
+}
+.warning-sign-icon::before {
+  content: '⚠';
+  top: 0.45em;
+  left: -0.45em;
+  position: absolute;
+  color: #c57174;
+  font-size: 2em;
+  line-height: 1em;
+}
