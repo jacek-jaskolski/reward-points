@@ -84,4 +84,26 @@ describe('calculateRewards', () => {
       ],
     })
   })
+
+  it('should match the doc example', () => {
+    const result = calculateRewards(
+      [{ customerId: 1, date: new Date('2022-01-01'), amount: 120 }],
+      {
+        1: { name: 'Alice' },
+      },
+      [
+        { minAmount: 50, maxAmount: 100, multiplier: 1 },
+        { minAmount: 100, maxAmount: null, multiplier: 2 },
+      ],
+    )
+    assert.deepStrictEqual(result, {
+      rankingMonths: ['2022-01'],
+      records: [
+        {
+          user: { id: 1, name: 'Alice' },
+          rewardPoints: { byMonth: { '2022-01': 90 }, total: 90 },
+        },
+      ],
+    })
+  })
 })
