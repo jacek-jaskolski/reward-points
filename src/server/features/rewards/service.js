@@ -1,3 +1,5 @@
+const initialValue = 0
+
 /**
  * Creates a reward points calculator object that can calculate reward points based on a set of tiers.
  * @param {Array} tiers - An array of tier objects that define the reward points tiers.
@@ -13,7 +15,7 @@ const createRewardPointsCalculator = (tiers) => ({
         rewardPoints += Math.floor(eligibleAmount) * multiplier
       }
       return rewardPoints
-    }, 0),
+    }, initialValue),
 })
 
 /**
@@ -34,18 +36,18 @@ const getMonthKeyFromDate = (date) =>
 module.exports = (transactions, users, tiers) => {
   const rewardPointsCalculator = createRewardPointsCalculator(tiers)
   const distinctMonths = []
-  const rewardsByUserInEachMontAndTotal = {}
+  const rewardsByUserInEachMonthAndTotal = {}
 
   transactions.forEach(({ customerId, date, amount }) => {
     const user = users[customerId]
 
     if (user) {
-      if (!rewardsByUserInEachMontAndTotal[customerId]) {
-        rewardsByUserInEachMontAndTotal[customerId] = {
+      if (!rewardsByUserInEachMonthAndTotal[customerId]) {
+        rewardsByUserInEachMonthAndTotal[customerId] = {
           user: { id: customerId, name: user.name },
           rewardPoints: {
             byMonth: {},
-            total: 0,
+            total: initialValue,
           },
         }
       }
@@ -55,18 +57,18 @@ module.exports = (transactions, users, tiers) => {
         distinctMonths.push(month)
       }
 
-      if (!rewardsByUserInEachMontAndTotal[customerId].rewardPoints.byMonth[month]) {
-        rewardsByUserInEachMontAndTotal[customerId].rewardPoints.byMonth[month] = 0
+      if (!rewardsByUserInEachMonthAndTotal[customerId].rewardPoints.byMonth[month]) {
+        rewardsByUserInEachMonthAndTotal[customerId].rewardPoints.byMonth[month] = 0
       }
 
       const points = rewardPointsCalculator.calculate(amount)
-      rewardsByUserInEachMontAndTotal[customerId].rewardPoints.byMonth[month] += points
-      rewardsByUserInEachMontAndTotal[customerId].rewardPoints.total += points
+      rewardsByUserInEachMonthAndTotal[customerId].rewardPoints.byMonth[month] += points
+      rewardsByUserInEachMonthAndTotal[customerId].rewardPoints.total += points
     }
   })
 
   return {
     rankingMonths: distinctMonths.sort().reverse(),
-    records: Object.values(rewardsByUserInEachMontAndTotal),
+    records: Object.values(rewardsByUserInEachMonthAndTotal),
   }
 }
