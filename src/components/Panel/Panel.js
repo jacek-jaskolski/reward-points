@@ -3,8 +3,8 @@ import './panel.css'
 export const Panel = ({ title, children }) => (
   <div className="panel">
     <div className="panel-header">
-      <h1>{title}</h1>
+      <h2>{title}</h2>
     </div>
-    {children}
+    <div className="panel-body">{children}</div>
   </div>
 )

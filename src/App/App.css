@@ -1,4 +1,15 @@
 .app {
-  width: 950px;
-  margin: 50px auto;
+  max-width: 950px;
+  max-height: calc(100vh - 40px);
+  overflow: hidden;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+@media only screen and (max-device-width: 812px) and (-webkit-device-pixel-ratio: 3) {
+  .app {
+    max-height: -webkit-fill-available;
+  }
 }

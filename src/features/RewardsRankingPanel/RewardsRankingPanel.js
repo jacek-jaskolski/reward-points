@@ -29,7 +29,7 @@ export const RewardsRankingPanel = () => {
   }, [fetchRewards])
 
   return (
-    <Panel title="Rewards ranking">
+    <Panel title="Rewards Ranking">
       {isLoading ? (
         <Spinner />
       ) : error ? (

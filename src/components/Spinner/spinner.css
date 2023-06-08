@@ -2,8 +2,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 320px;
   width: 100%;
+  margin: 40px auto 30px;
 }
 
 .spinner::before {

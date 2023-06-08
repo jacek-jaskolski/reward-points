@@ -16,4 +16,5 @@ const get = async (url) => {
 
 export const apiService = {
   getRewards: () => get(API_ENDPOINTS.REWARDS),
+  kill: () => get(API_ENDPOINTS.KILL),
 }

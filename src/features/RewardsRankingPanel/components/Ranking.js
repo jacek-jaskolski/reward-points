@@ -15,7 +15,7 @@ export const Ranking = ({ rankingMonths, records }) => {
     <table className="table" key="sort">
       <thead>
         <tr>
-          <th className="cell">Rank</th>
+          <th className="cell"></th>
           <th className="cell">Name</th>
           <SortableCellHeader
             columnKey={total_column_key}
