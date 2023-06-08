@@ -2,6 +2,10 @@
 
 This is a React app that calculate reward points earned by customers for completing transactions during a month period. The app takes a record of every transaction and calculates the reward points earned by each customer per month and total.
 
+## Demo
+
+You can run the app directly from your browser using the sandbox by [clicking here](https://codesandbox.io/p/github/jacek-jaskolski/reward-points/main). If you encounter any errors during the initial load, try refreshing the page. Please note that the frontend may start faster than the backend.
+
 ## Installation
 
 Before running the app, you need to install all the required dependencies. To do this, run the following command:
